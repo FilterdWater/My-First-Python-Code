@@ -1,11 +1,8 @@
-adjective1 = input("Enter an adjective (description): ")
-noun1 = input("Enter a noun (place, person, thing): ")
-adjective2 = input("Enter an adjective (description): ")
-verb1= input("Enter a verb ending with 'ing': ")
-adjective3 = input("Enter an adjective (description): ")
+import math
 
+a = float(input("Enter side A: "))
+b = float(input("Enter side B: "))
 
-print(f"Today I went to a {adjective1} zoo.")
-print(f"In an exhibit, I saw a {noun1}")
-print(f"{noun1} was {adjective2} and {verb1}")
-print(f"I was {adjective3}!")
+c = math.sqrt(pow(a, 2) + pow(b, 2))
+
+print(f"Side C = {c}")
