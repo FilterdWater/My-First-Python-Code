@@ -1,7 +1,7 @@
-price1 = 3000.14159
-price2 = -9870.65
-price3 = 1200.34
+num = int(input("Enter a # between 1 - 10 : "))
 
-print(f"Price 1 is €{price1:+,.2f}")
-print(f"Price 2 is €{price2:+,.2f}")
-print(f"Price 3 is €{price3:+,.2f}")
+while num < 1 or num > 10:
+    print(f"{num} is not valid")
+    num = int(input("Enter a # between 1 - 10 : "))
+
+print(f"Your number is {num}")
