@@ -1,8 +1,12 @@
-rows = int(input("Enter the number of rows: "))
-columns = int(input("Enter the number of columns: "))
-symbol = input("Enter a symbol to use: ")
+fruits = ("apple", "orange", "banana", "coconut", "coconut")
+# print(dir(fruits))
+# print(help(fruits))
+# print(len(fruits))
+# print("pineapple" in fruits)
 
-for x in range(rows):
-    for y in range(columns):
-        print(symbol, end="")
-    print()
+# print(fruits.index("apple"))
+print(fruits.count("coconut"))
+
+# print(fruits)
+for fruit in fruits:
+    print(fruit)
