@@ -1,53 +1,33 @@
-questions = (
-    "What's 9+10?: ",
-    "What's the capital of France?: ",
-    "How many hours are in a day?: ",
-    "Which planet is known as the Red Planet?: ",
-    "What's the largest mammal on Earth?: ",
-)
+capitals = {
+    "USA": "Washington D.C.",
+    "India": "New Delhi",
+    "China": "Beijing",
+    "Russia": "Moscow",
+}
 
-options = (
-    ("A. 19", "B. 21 (You stupid)"),
-    ("A. Paris", "B. Amsterdam"),
-    ("A. 24", "B. 48"),
-    ("A. Saturn", "B. Mars"),
-    ("A. Elephant", "B. Blue whale"),
-)
+# print(dir(capitals))
+# print(help(capitals))
+# print(capitals.get("Japan"))
 
-answers = ("B", "A", "A", "B", "B")
-guesses = []
-score = 0
-question_num = 0
+# if capitals.get("Japan"):
+#     print("That capital exists")
+# else:
+#     print("That capital doesn't exist")
 
-for question in questions:
-    print("--------------------")
-    print(question)
-    for option in options[question_num]:
-        print(option)
+# capitals.update({"Germany": "Berlin"})
+# capitals.update({"USA": "Detroit"})
+# capitals.pop("China")
+# capitals.popitem()
+# capitals.clear()
 
-    guess = input("Enter (A, B): ").upper()
-    guesses.append(guess)
-    if guess == answers[question_num]:
-        score += 1
-        print("CORRECT!")
-    else:
-        print("INCORRECT!")
-        print(f"{answers[question_num]} is the correct answer")
-    question_num += 1
+# keys = capitals.keys()
+# for key in capitals.keys():
+#     print(key)
 
-print("--------------------")
-print("      RESULTS       ")
-print("--------------------")
+# values = capitals.values()
+# for value in capitals.values():
+#     print(value)
 
-print("answers: ", end="")
-for answer in answers:
-    print(answer, end="")
-print()
-
-print("guesses: ", end="")
-for guess in guesses:
-    print(guess, end="")
-print()
-
-score = int(score / len(questions) * 100)
-print(f"Your score is: {score}%")
+# items = capitals.items()
+for key, value in capitals.items():
+    print(f"{key}: {value}")
