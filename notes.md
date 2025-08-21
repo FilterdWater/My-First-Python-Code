@@ -17,3 +17,9 @@ For some reason I needed a moment to be able to walk through the code on line 5 
 17/08/2025
 
 Have gotten sick about 3 days ago so have been taking some rest. Getting back into it today though.
+
+---
+
+21/08/2025
+
+Installed [Omarchy](https://omarchy.org/) on my Thinkpad-T480 and used it to write the code for this commit using Lazyvim. Definitely going slower then I usually do since I'm not using VSCode but I like the experience so far.
