@@ -1,35 +1,31 @@
 import random
 
-lowest_number = 1
-highest_num = 100
+options = ("rock", "paper", "scissors")
+running = True
+victory_message = "You win!"
 
-answer = random.randint(lowest_number, highest_num)
+while running:
+    computer = random.choice(options)
+    player = None
 
-guesses = 0
-is_running = True
+    while player not in options:
+        player = input("Enter a choice (rock, paper, scissor): ")
 
-print("Python Number Guessing Game")
-print(f"Select a number between {lowest_number} and {highest_num}")
+    print(f"player: {player}")
+    print(f"computer: {computer}")
 
-while is_running:
-    guess = input("Enter your guess: ")
-
-    if guess.isdigit():
-        guess = int(guess)
-        guesses += 1
-
-        if guess < lowest_number or guess > highest_num:
-            print("That number is out of range")
-            print(f"Select a number between {lowest_number} and {highest_num}")
-        elif guess < answer:
-            print("Too low, Try again.")
-        elif guess > answer:
-            print("Too high, try again.")
-        else:
-            print(f"Correct! The answer was {answer}")
-            print(f"Number of guesses: {guesses}")
-            is_running = False
-
+    if player == computer:
+        print("Its a tie!")
+    elif player == "rock" and computer == "scissors":
+        print(victory_message)
+    elif player == "paper" and computer == "rock":
+        print(victory_message)
+    elif player == "scissors" and computer == "paper":
+        print(victory_message)
     else:
-        print("Invalid guess")
-        print(f"Select a number between {lowest_number} and {highest_num}")
+        print("You lose!")
+
+    if not input("Play again? (y/n): ").lower() == "y":
+        running = False
+
+print("Thanks for playing")
