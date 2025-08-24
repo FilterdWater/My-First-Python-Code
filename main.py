@@ -1,11 +1,7 @@
-import time
+def get_phone(country, area, first, last):
+    return f"{country}-{area}-{first}-{last}"
 
 
-def count(end, start=0):
-    for x in range(start, end + 1):
-        print(x)
-        time.sleep(1)
-    print("DONE!")
+phone_num = get_phone(country=1, area=123, first=456, last=7890)
 
-
-count(30, 15)
+print(phone_num)
