@@ -1,7 +1,28 @@
-def get_phone(country, area, first, last):
-    return f"{country}-{area}-{first}-{last}"
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end=" ")
+    print()
+
+    if "apt" in kwargs:
+        print(f"{kwargs.get('street')}, {kwargs.get('apt')}")
+    elif "pobox" in kwargs:
+        print(f"{kwargs.get('street')}")
+        print(f"{kwargs.get('pobox')}")
+    else:
+        print(f"{kwargs.get('street')}")
+
+    print(f"{kwargs.get('city')}, {kwargs.get('state')}, {kwargs.get('zip')}")
 
 
-phone_num = get_phone(country=1, area=123, first=456, last=7890)
-
-print(phone_num)
+shipping_label(
+    "Dr.",
+    "Doctor",
+    "Amazing",
+    "III",
+    street="123 Fake St.",
+    pobox="1001",
+    apt="100",
+    city="Detroit",
+    state="MI",
+    zip="12345",
+)
