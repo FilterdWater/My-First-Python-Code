@@ -1,8 +1,4 @@
-grades = {"FilterdWater": "A"}
+grades = [85, 42, 79, 90, 56, 61, 30]
+passing_grades = [grade for grade in grades if grade >= 60]
 
-student = input("Enter the name of a student: ")
-
-if student in grades:
-    print(f"{student}'s grade is {grades[student]}")
-else:
-    print(f"{student} was not found")
+print(passing_grades)
