@@ -1,13 +1,26 @@
-import example_module
+string = "string"
 
-result1 = example_module.pi
-result2 = example_module.square(3)
-result3 = example_module.cube(3)
-result4 = example_module.circumference(3)
-result5 = example_module.area(3)
 
-print(result1)
-print(result2)
-print(result3)
-print(result4)
-print(result5)
+def func1():
+    x = 1
+    print(x)
+
+
+def func2():
+    x = 2
+    print(x)
+
+
+def printString():
+    print(string)
+
+    def printString2():
+        string2 = "another string"
+        print(string2)
+
+    printString2()
+
+
+func1()
+func2()
+printString()
