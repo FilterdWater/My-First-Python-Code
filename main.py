@@ -1,55 +1,90 @@
-def show_balance(balance):
-    print(f"Your balance is €{balance:.2f}")
+import random
 
 
-def deposit():
-    amount = float(input("Enter an amount to be deposited: "))
+def spin_row():
+    symbols = ["🍒", "🍉", "🍋", "🔔", "⭐"]
 
-    if amount < 0:
-        print("Non valid input")
-        return 0
-    else:
-        return amount
+    return [random.choice(symbols) for _ in range(3)]
+    # results = []
+    # for symbol in range(3):
+    #     results.append(random.choice(symbols))
+    # return results
 
 
-def withdraw(balance):
-    amount = float(input("Enter an amount to be withdrawn: "))
+def print_row(row):
+    print("-------------")
+    print(" | ".join(row))
+    print("-------------")
 
-    if amount > balance:
-        print("Insufficient funds")
-        return 0
-    elif amount < 0:
-        print("Amount must be greater than 0")
-        return 0
-    else:
-        return amount
+
+def get_payout(row, bet):
+    if row[0] == row[1] == row[2]:
+        if row[0] == "🍒":
+            return bet * 5
+        elif row[0] == "🍉":
+            return bet * 5
+        elif row[0] == "🍋":
+            return bet * 5
+        elif row[0] == "🔔":
+            return bet * 10
+        elif row[0] == "⭐":
+            return bet * 20
+    return 0
 
 
 def main():
-    balance = 0
-    is_running = True
+    balance = 100
 
-    while is_running:
-        print("Banking Program")
-        print("1. Show Balance")
-        print("2. Deposit")
-        print("3. Withdraw")
-        print("4. Exit")
+    print("-----------------------")
+    print("Welcome to Python slots")
+    print("Symbols: 🍒🍉🍋🔔⭐ ")
+    print("-----------------------")
 
-        choice = input("Enter your choice (1-4): ")
+    while balance > 0:
+        print("")
+        print(f"Current balance: €{balance}")
 
-        if choice == "1":
-            show_balance(balance)
-        elif choice == "2":
-            balance += deposit()
-        elif choice == "3":
-            balance -= withdraw(balance)
-        elif choice == "4":
-            is_running = False
+        bet = input("Place your bet amount: ")
+
+        if not bet.isdigit():
+            print("Input invalid, try again")
+            continue
+
+        bet = int(bet)
+
+        if bet > balance:
+            print("Insufficient funds")
+            continue
+
+        if bet <= 0:
+            print("Bet must be greater than 0")
+            continue
+
+        balance -= bet
+
+        row = spin_row()
+        print("Spinning...\n")
+        print_row(row)
+
+        payout = get_payout(row, bet)
+        if payout > 0:
+            print("")
+            print(f"You won €{payout}")
         else:
-            print("Non valid input")
+            print("")
+            print("Sorry, you lost")
 
-    print("Goodbye, Have a nice day :-)")
+        balance += payout
+
+        play_again = input("Play again? (y/N): ")
+
+        print("")
+        if play_again != "y":
+            break
+
+    print("------------------------------")
+    print(f"  Final balance: €{balance}  ")
+    print("------------------------------")
 
 
 if __name__ == "__main__":
